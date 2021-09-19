@@ -36,6 +36,9 @@ RUN set -ex ; \
     r-base \
     ruby-dev \
     texlive-bibtex-extra \
+    texlive-fonts-recommended \
+    texlive-fonts-extra \
+    texlive-latex-base \
     texlive-latex-extra \
     wget \
     unzip \
