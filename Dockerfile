@@ -55,7 +55,9 @@ RUN set -ex ; \
     wget \
     unzip \
     zip ; \
-  apt-get clean ; \
+  apt-get clean
+
+RUN set -ex ; \
   curl -s "https://get.sdkman.io?rcupdate=false" | bash ; \
   bash -c 'set -ex ; \
     source "$SDKMAN_DIR/bin/sdkman-init.sh" ; \
@@ -63,7 +65,8 @@ RUN set -ex ; \
     sdk install maven 3.8.2 ; \
     sdk install jbang 0.78.0 ; \
     rm -rf "$SDKMAN_DIR/archives/*.zip" ;   \
-    ' ; \
+    '
+RUN set -ex ; \
   MATHEMATICAL_SKIP_STRDUP=1 gem install mathematical ; \
   gem install \
     asciidoctor \
