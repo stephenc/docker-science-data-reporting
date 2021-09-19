@@ -34,3 +34,16 @@ RUN set -ex ; \
     unzip ; \
   apt-get clean
 
+ENV PATH=$SDKMAN_DIR/bin;$PATH
+
+RUN /bin/bash -c 'set -ex ; \
+    source "$SDKMAN_DIR/bin/sdkman-init.sh" ; \
+    sdk install java 11.0.11.hs-adpt ; \
+    sdk install maven 3.8.2 ; \
+    sdk install jbang 0.78.0 ; \
+    rm -rf "$SDKMAN_DIR/archives/*.zip" ;   \
+    '
+ENV PATH=$SDKMAN_DIR/candidates/java/current/bin:$SDKMAN_DIR/candidates/jbang/current/bin:$SDKMAN_DIR/candidates/maven/current/bin:$PATH
+ENV JAVA_HOME=$SDKMAN_DIR/candidates/java/current
+
+
