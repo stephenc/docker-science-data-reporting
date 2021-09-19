@@ -32,6 +32,7 @@ RUN set -ex ; \
     build-essential \
     curl \
     git \
+    latexmk \
     r-base \
     ruby-dev \
     texlive-latex-extra \
