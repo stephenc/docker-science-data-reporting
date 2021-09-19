@@ -22,7 +22,7 @@ LABEL \
   org.opencontainers.image.licenses="ASLv2"
 
 RUN set -ex ; \
-  export DEBIAN_FRONTEND=noninteractive \
+  export DEBIAN_FRONTEND=noninteractive ; \
   apt-get update -y ; \
   apt-get install -y -q \
     curl \
