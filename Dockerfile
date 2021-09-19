@@ -43,6 +43,7 @@ RUN set -ex ; \
     libffi-dev \
     libgdk-pixbuf2.0-dev \
     libpango1.0-dev \
+    libssl-dev \
     libxml2-dev \
     r-base \
     ruby-dev \
