@@ -27,6 +27,15 @@ ENV PATH=$SDKMAN_DIR/bin;$PATH
 RUN set -ex ; \
   export DEBIAN_FRONTEND=noninteractive ; \
   apt-get update -y ; \
+  apt-get install -y -q
+    dirmngr \
+    gnupg \
+    apt-transport-https \
+    ca-certificates \
+    software-properties-common ;\
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 ; \
+  add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' ; \
+  apt-get update -y ; \
   apt-get install -y -q \
     bash \
     bison \
@@ -80,6 +89,8 @@ RUN set -ex ; \
 ENV PATH=$SDKMAN_DIR/candidates/java/current/bin:$SDKMAN_DIR/candidates/jbang/current/bin:$SDKMAN_DIR/candidates/maven/current/bin:$PATH
 ENV JAVA_HOME=$SDKMAN_DIR/candidates/java/current
 
+# R tidyverse packages need TZ environment variable defined.
+ENV TZ=UTC
 ENV RENV_PATHS_CACHE=/usr/local/share/renv
 COPY seed-environments /tmp/seed-environments
 RUN set -ex ; \
@@ -88,6 +99,7 @@ RUN set -ex ; \
   cd / ; \
   rm -rf /tmp/seed-environments ; \
   chmod -R a+rw "${RENV_PATHS_CACHE}" "/usr/local/lib/R/site-library"
+
 
 RUN useradd -u 1000 user && mkdir /home/user && chown user:user /home/user
 
