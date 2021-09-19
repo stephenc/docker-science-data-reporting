@@ -64,6 +64,7 @@ RUN set -ex ; \
     sdk install jbang 0.78.0 ; \
     rm -rf "$SDKMAN_DIR/archives/*.zip" ;   \
     ' ; \
+  MATHEMATICAL_SKIP_STRDUP=1 gem install mathematical ; \
   gem install \
     asciidoctor \
     asciidoctor-bibtex \
