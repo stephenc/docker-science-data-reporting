@@ -29,13 +29,23 @@ RUN set -ex ; \
   apt-get update -y ; \
   apt-get install -y -q \
     bash \
+    bison \
     build-essential \
+    cmake \
     curl \
+    flex \
+    fonts-lyx \
     git \
     graphviz \
     latexmk \
+    libcairo2-dev \
+    libcurl4-openssl-dev \
+    libffi-dev \
+    libgdk-pixbuf2.0-dev \
+    libpango1.0-dev \
     r-base \
     ruby-dev \
+    sed \
     texlive-bibtex-extra \
     texlive-font-utils \
     texlive-fonts-recommended \
@@ -54,12 +64,25 @@ RUN set -ex ; \
     sdk install jbang 0.78.0 ; \
     rm -rf "$SDKMAN_DIR/archives/*.zip" ;   \
     ' ; \
-  gem install asciidoctor asciidoctor-bibtex asciidoctor-kroki
+  gem install \
+    asciidoctor \
+    asciidoctor-bibtex \
+    asciidoctor-kroki \
+    asciidoctor-mathematical \
+    asciidoctor-pdf 
 
 ENV PATH=$SDKMAN_DIR/candidates/java/current/bin:$SDKMAN_DIR/candidates/jbang/current/bin:$SDKMAN_DIR/candidates/maven/current/bin:$PATH
 ENV JAVA_HOME=$SDKMAN_DIR/candidates/java/current
 
 RUN useradd -u 1000 user && mkdir /home/user && chown user:user /home/user
+
+COPY seed-environments /tmp/seed-environments
+RUN set -ex ; \
+  cd /tmp/seed-environments/r ; \
+  rm -rv renv/library renv/local renv/staging ; \
+  Rscript init.R ; \
+  cd / ; \
+  rm -rf /tmp/seed-environments
 
 USER 1000
 WORKDIR /home/user
