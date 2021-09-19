@@ -32,6 +32,7 @@ RUN set -ex ; \
     build-essential \
     curl \
     git \
+    graphviz \
     latexmk \
     r-base \
     ruby-dev \
