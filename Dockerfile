@@ -27,7 +27,7 @@ ENV PATH=$SDKMAN_DIR/bin;$PATH
 RUN set -ex ; \
   export DEBIAN_FRONTEND=noninteractive ; \
   apt-get update -y ; \
-  apt-get install -y -q
+  apt-get install -y -q \
     dirmngr \
     gnupg \
     apt-transport-https \
@@ -92,14 +92,13 @@ ENV JAVA_HOME=$SDKMAN_DIR/candidates/java/current
 # R tidyverse packages need TZ environment variable defined.
 ENV TZ=UTC
 ENV RENV_PATHS_CACHE=/usr/local/share/renv
-COPY seed-environments /tmp/seed-environments
+COPY seed-environments/r /tmp/seed-environments/r
 RUN set -ex ; \
   cd /tmp/seed-environments/r ; \
   Rscript init.R ; \
   cd / ; \
   rm -rf /tmp/seed-environments ; \
   chmod -R a+rw "${RENV_PATHS_CACHE}" "/usr/local/lib/R/site-library"
-
 
 RUN useradd -u 1000 user && mkdir /home/user && chown user:user /home/user
 
