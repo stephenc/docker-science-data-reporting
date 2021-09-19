@@ -29,14 +29,15 @@ RUN set -ex ; \
   apt-get update -y ; \
   apt-get install -y -q \
     bash \
+    build-essential \
     curl \
     git \
-    wget \
-    zip \
-    texlive-latex-extra \
-    build-essential \
     r-base \
-    unzip ; \
+    ruby-dev \
+    texlive-latex-extra \
+    wget \
+    unzip \
+    zip ; \
   apt-get clean ; \
   curl -s "https://get.sdkman.io?rcupdate=false" | bash ; \
   bash -c 'set -ex ; \
@@ -45,7 +46,8 @@ RUN set -ex ; \
     sdk install maven 3.8.2 ; \
     sdk install jbang 0.78.0 ; \
     rm -rf "$SDKMAN_DIR/archives/*.zip" ;   \
-    '
+    ' ; \
+  gem install asciidoctor asciidoctor-bibtex asciidoctor-kroki
 
 ENV PATH=$SDKMAN_DIR/candidates/java/current/bin:$SDKMAN_DIR/candidates/jbang/current/bin:$SDKMAN_DIR/candidates/maven/current/bin:$PATH
 ENV JAVA_HOME=$SDKMAN_DIR/candidates/java/current
