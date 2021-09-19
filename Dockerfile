@@ -35,6 +35,7 @@ RUN set -ex ; \
     latexmk \
     r-base \
     ruby-dev \
+    texlive-bibtex-extra \
     texlive-latex-extra \
     wget \
     unzip \
