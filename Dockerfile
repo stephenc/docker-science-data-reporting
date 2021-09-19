@@ -85,7 +85,6 @@ RUN useradd -u 1000 user && mkdir /home/user && chown user:user /home/user
 COPY seed-environments /tmp/seed-environments
 RUN set -ex ; \
   cd /tmp/seed-environments/r ; \
-  rm -rv renv/library renv/local renv/staging ; \
   Rscript init.R ; \
   cd / ; \
   rm -rf /tmp/seed-environments
