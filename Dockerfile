@@ -80,14 +80,16 @@ RUN set -ex ; \
 ENV PATH=$SDKMAN_DIR/candidates/java/current/bin:$SDKMAN_DIR/candidates/jbang/current/bin:$SDKMAN_DIR/candidates/maven/current/bin:$PATH
 ENV JAVA_HOME=$SDKMAN_DIR/candidates/java/current
 
-RUN useradd -u 1000 user && mkdir /home/user && chown user:user /home/user
-
+ENV RENV_PATHS_CACHE=/usr/local/share/renv
 COPY seed-environments /tmp/seed-environments
 RUN set -ex ; \
   cd /tmp/seed-environments/r ; \
   Rscript init.R ; \
   cd / ; \
-  rm -rf /tmp/seed-environments
+  rm -rf /tmp/seed-environments ; \
+  chmod -R a+rw "${RENV_PATHS_CACHE}"
+
+RUN useradd -u 1000 user && mkdir /home/user && chown user:user /home/user
 
 USER 1000
 WORKDIR /home/user
