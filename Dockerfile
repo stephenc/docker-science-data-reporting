@@ -87,7 +87,7 @@ RUN set -ex ; \
   Rscript init.R ; \
   cd / ; \
   rm -rf /tmp/seed-environments ; \
-  chmod -R a+rw "${RENV_PATHS_CACHE}"
+  chmod -R a+rw "${RENV_PATHS_CACHE}" "/usr/local/lib/R/site-library"
 
 RUN useradd -u 1000 user && mkdir /home/user && chown user:user /home/user
 

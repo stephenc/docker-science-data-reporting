@@ -1,4 +1,4 @@
-if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv");
+if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv", lib="/usr/local/lib/R/site-library");
 renv::activate()
 renv::restore()
 
