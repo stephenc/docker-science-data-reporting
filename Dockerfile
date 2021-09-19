@@ -36,6 +36,7 @@ RUN set -ex ; \
     r-base \
     ruby-dev \
     texlive-bibtex-extra \
+    texlive-font-utils \
     texlive-fonts-recommended \
     texlive-fonts-extra \
     texlive-latex-base \
