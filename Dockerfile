@@ -15,3 +15,22 @@
 
 FROM ubuntu:20.04
 
+LABEL \
+  org.opencontainers.image.title="Docker Image of Some toolchains useful for scientific data analysis and reporting" \
+  org.opencontainers.image.authors="Stephen Connolly <stephenc@apache.org>" \
+  org.opencontainers.image.source="https://github.com/stephenc/docker-science-data-reporting" \
+  org.opencontainers.image.licenses="ASLv2"
+
+RUN set -ex ; \
+  apt-get update -y ; \
+  apt-get install -y \
+    curl \
+    git \
+    wget \
+    zip \
+    texlive-latex-extra \
+    build-essential \
+    r-base \
+    unzip ; \
+  apt-get clean
+
