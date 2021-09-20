@@ -46,6 +46,7 @@ RUN set -ex ; \
     fonts-lyx \
     git \
     graphviz \
+    language-pack-en \
     latexmk \
     libcairo2-dev \
     libcurl4-openssl-dev \
@@ -91,6 +92,8 @@ ENV JAVA_HOME=$SDKMAN_DIR/candidates/java/current
 
 # R tidyverse packages need TZ environment variable defined.
 ENV TZ=UTC
+# R needs a UTF-8 locale to load CSV files with non-ascii characters
+ENV LANG=C.UTF-8
 ENV RENV_PATHS_CACHE=/usr/local/share/renv
 COPY seed-environments/r /tmp/seed-environments/r
 RUN set -ex ; \
