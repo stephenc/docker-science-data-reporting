@@ -103,9 +103,13 @@ RUN set -ex ; \
   rm -rf /tmp/seed-environments ; \
   chmod -R a+rw "${RENV_PATHS_CACHE}" "/usr/local/lib/R/site-library"
 
-RUN useradd -u 1000 user && mkdir /home/user && chown user:user /home/user
+# GitHub actions compatibility is better if we use user 1001
+RUN set -ex ; \
+  useradd -u 1001 user ; \
+  mkdir /home/user ; \
+  chown user:user /home/user
 
-USER 1000
+USER 1001
 WORKDIR /home/user
 ENTRYPOINT ["/bin/bash"]
 
