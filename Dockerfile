@@ -73,9 +73,9 @@ RUN set -ex ; \
   curl -s "https://get.sdkman.io?rcupdate=false" | bash ; \
   bash -c 'set -ex ; \
     source "$SDKMAN_DIR/bin/sdkman-init.sh" ; \
-    sdk install java 11.0.11.hs-adpt ; \
-    sdk install maven 3.8.2 ; \
-    sdk install jbang 0.78.0 ; \
+    sdk install java 17.0.1-tem ; \
+    sdk install maven 3.8.4 ; \
+    sdk install jbang 0.83.1 ; \
     rm -rf "$SDKMAN_DIR/archives/*.zip" ;   \
     '
 RUN set -ex ; \
