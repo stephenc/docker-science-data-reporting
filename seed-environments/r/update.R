@@ -2,6 +2,6 @@ if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv", lib="/us
 renv::activate()
 renv::restore()
 
-renv::upgrade(prompt=FALSE, reload=TRUE)
-renv::update(prompt=FALSE, reload=TRUE)
+renv::upgrade(prompt=FALSE)
+renv::update(prompt=FALSE)
 renv::snapshot(prompt=FALSE)
