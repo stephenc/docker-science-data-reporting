@@ -88,10 +88,10 @@
     },
     "backports": {
       "Package": "backports",
-      "Version": "1.4.0",
+      "Version": "1.4.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "00c7752ce37466d4a74774bcca1a507c"
+      "Hash": "c39fbec8a30d23e721980b8afb31984c"
     },
     "base64enc": {
       "Package": "base64enc",
@@ -319,10 +319,10 @@
     },
     "glue": {
       "Package": "glue",
-      "Version": "1.5.1",
+      "Version": "1.6.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "e01bc1fe0c20954ec97eac86640abc70"
+      "Hash": "b8bb7aaf248e45bac08ebed86f3a0aa4"
     },
     "googledrive": {
       "Package": "googledrive",
@@ -431,10 +431,10 @@
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.36",
+      "Version": "1.37",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "46344b93f8854714cdf476433a59ed10"
+      "Hash": "a4ec675eb332a33fe7b7fe26f70e1f98"
     },
     "labeling": {
       "Package": "labeling",
@@ -772,10 +772,10 @@
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.28",
+      "Version": "0.29",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "f7f3a61ab62cd046d307577a8ae12999"
+      "Hash": "e2e5fb1a74fbb68b27d6efc5372635dc"
     },
     "xml2": {
       "Package": "xml2",
