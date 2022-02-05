@@ -291,10 +291,10 @@
     },
     "generics": {
       "Package": "generics",
-      "Version": "0.1.1",
+      "Version": "0.1.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "3f6bcfb0ee5d671d9fd1893d2faa79cb"
+      "Hash": "177475892cf4a55865868527654a7741"
     },
     "ggplot2": {
       "Package": "ggplot2",
@@ -515,10 +515,10 @@
     },
     "pillar": {
       "Package": "pillar",
-      "Version": "1.6.5",
+      "Version": "1.7.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "464a3e015331eeb8efd1d239cad5128d"
+      "Hash": "51dfc97e1b7069e9f7e6f83f3589c22e"
     },
     "pkgconfig": {
       "Package": "pkgconfig",
@@ -578,10 +578,10 @@
     },
     "readr": {
       "Package": "readr",
-      "Version": "2.1.1",
+      "Version": "2.1.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "e9df4b445fca203653f04ece2f97d51e"
+      "Hash": "9c59de1357dc209868b5feb5c9f0fe2f"
     },
     "readxl": {
       "Package": "readxl",
@@ -625,10 +625,10 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "1.0.0",
+      "Version": "1.0.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "ec923a35ba44bc86fbf95dacaccf65da"
+      "Hash": "3bf0219f19d9f5b3c682acbb3546a151"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
@@ -695,10 +695,10 @@
     },
     "tidyr": {
       "Package": "tidyr",
-      "Version": "1.1.4",
+      "Version": "1.2.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "c8fbdbd9fcac223d6c6fe8e406f368e1"
+      "Hash": "d8b95b7fee945d7da6888cf7eb71a49c"
     },
     "tidyselect": {
       "Package": "tidyselect",
