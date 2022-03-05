@@ -128,6 +128,13 @@
       "Repository": "CRAN",
       "Hash": "bfa8a039d77ae8d5413254e572c8abea"
     },
+    "bslib": {
+      "Package": "bslib",
+      "Version": "0.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "56ae7e1987b340186a8a5a157c2ec358"
+    },
     "callr": {
       "Package": "callr",
       "Version": "3.7.0",
@@ -508,10 +515,10 @@
     },
     "openssl": {
       "Package": "openssl",
-      "Version": "1.4.6",
+      "Version": "2.0.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "69fdf291af288f32fd4cd93315084ea8"
+      "Hash": "cf4329aac12c2c44089974559c18e446"
     },
     "pillar": {
       "Package": "pillar",
@@ -625,17 +632,17 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "1.0.1",
+      "Version": "1.0.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "3bf0219f19d9f5b3c682acbb3546a151"
+      "Hash": "04884d9a75d778aca22c7154b8333ec9"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.11",
+      "Version": "2.12",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "320017b52d05a943981272b295750388"
+      "Hash": "354da5088ddfdffb73c11cc952885d88"
     },
     "rstudioapi": {
       "Package": "rstudioapi",
@@ -650,6 +657,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "bb099886deffecd6f9b298b7d4492943"
+    },
+    "sass": {
+      "Package": "sass",
+      "Version": "0.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "50cf822feb64bb3977bda0b7091be623"
     },
     "scales": {
       "Package": "scales",
@@ -765,17 +779,17 @@
     },
     "withr": {
       "Package": "withr",
-      "Version": "2.4.3",
+      "Version": "2.5.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "a376b424c4817cda4920bbbeb3364e85"
+      "Hash": "c0e49a9760983e81e55cdd9be92e7182"
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.29",
+      "Version": "0.30",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "e2e5fb1a74fbb68b27d6efc5372635dc"
+      "Hash": "e83f48136b041845e50a6658feffb197"
     },
     "xml2": {
       "Package": "xml2",
