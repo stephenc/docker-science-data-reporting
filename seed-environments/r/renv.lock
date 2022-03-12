@@ -67,10 +67,10 @@
     },
     "Rcpp": {
       "Package": "Rcpp",
-      "Version": "1.0.8",
+      "Version": "1.0.8.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "22b546dd7e337f6c0c58a39983a496bc"
+      "Hash": "6d93fbe4e93e43cbf59fd90d7932c5fb"
     },
     "askpass": {
       "Package": "askpass",
@@ -639,10 +639,10 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.12",
+      "Version": "2.13",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "354da5088ddfdffb73c11cc952885d88"
+      "Hash": "ac78f4d2e0289d4cba73b88af567b8b1"
     },
     "rstudioapi": {
       "Package": "rstudioapi",
