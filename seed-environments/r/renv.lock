@@ -67,10 +67,10 @@
     },
     "Rcpp": {
       "Package": "Rcpp",
-      "Version": "1.0.8.2",
+      "Version": "1.0.8.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "6d93fbe4e93e43cbf59fd90d7932c5fb"
+      "Hash": "32e79b908fda56ee57fe518a8d37b864"
     },
     "askpass": {
       "Package": "askpass",
@@ -751,10 +751,10 @@
     },
     "uuid": {
       "Package": "uuid",
-      "Version": "1.0-3",
+      "Version": "1.0-4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "2097822ba5e4440b81a0c7525d0315ce"
+      "Hash": "99c959c7424be995ddca19b5736c8dd0"
     },
     "vctrs": {
       "Package": "vctrs",
