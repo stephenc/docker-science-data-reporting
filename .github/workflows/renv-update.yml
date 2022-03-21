@@ -12,7 +12,7 @@ jobs:
       image: ghcr.io/stephenc/docker-science-data-reporting:main
     steps:
       - name: Checkout source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Update
         run: |
           cd seed-environments/r
