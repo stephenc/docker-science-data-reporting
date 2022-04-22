@@ -13,7 +13,7 @@
 #   limitations under the License.
 #
 
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 LABEL \
   org.opencontainers.image.title="Docker Image of Some toolchains useful for scientific data analysis and reporting" \
