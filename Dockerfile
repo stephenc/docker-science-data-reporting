@@ -13,7 +13,7 @@
 #   limitations under the License.
 #
 
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 LABEL \
   org.opencontainers.image.title="Docker Image of Some toolchains useful for scientific data analysis and reporting" \
@@ -34,7 +34,7 @@ RUN set -ex ; \
     ca-certificates \
     software-properties-common ;\
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 ; \
-  add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' ; \
+  add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/' ; \
   apt-get update -y ; \
   apt-get install -y -q \
     bash \
@@ -54,7 +54,9 @@ RUN set -ex ; \
     libgdk-pixbuf2.0-dev \
     libpango1.0-dev \
     libssl-dev \
+    libwebp-dev \
     libxml2-dev \
+    libzstd-dev \
     r-base \
     ruby-dev \
     sed \
