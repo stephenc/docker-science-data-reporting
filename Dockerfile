@@ -54,7 +54,9 @@ RUN set -ex ; \
     libgdk-pixbuf2.0-dev \
     libpango1.0-dev \
     libssl-dev \
+    libwebp-dev \
     libxml2-dev \
+    libzstd-dev \
     r-base \
     ruby-dev \
     sed \
