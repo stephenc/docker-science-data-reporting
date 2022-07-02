@@ -55,10 +55,10 @@
     },
     "R.utils": {
       "Package": "R.utils",
-      "Version": "2.11.0",
+      "Version": "2.12.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "a7ecb8e60815c7a18648e84cd121b23a",
+      "Hash": "d31333e10f14027e1cbbc6f266512806",
       "Requirements": [
         "R.methodsS3",
         "R.oo"
@@ -145,10 +145,10 @@
     },
     "broom": {
       "Package": "broom",
-      "Version": "0.8.0",
+      "Version": "1.0.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "fe13cb670e14da57fd7a466578db8ce5",
+      "Hash": "c948329889c7b24a4201df3aef5058c2",
       "Requirements": [
         "backports",
         "dplyr",
@@ -259,10 +259,10 @@
     },
     "dbplyr": {
       "Package": "dbplyr",
-      "Version": "2.2.0",
+      "Version": "2.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "a6e4cc7b658d043806bc559ef42a1d2a",
+      "Hash": "f6c7eb9617e4d2a86bb7182fff99c805",
       "Requirements": [
         "DBI",
         "R6",
@@ -976,10 +976,10 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "1.0.2",
+      "Version": "1.0.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "04884d9a75d778aca22c7154b8333ec9",
+      "Hash": "9103a8f74b2114a5ed1136b471d8feca",
       "Requirements": []
     },
     "rmarkdown": {
@@ -1305,10 +1305,10 @@
     },
     "yulab.utils": {
       "Package": "yulab.utils",
-      "Version": "0.0.4",
+      "Version": "0.0.5",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "922e11dcf40bb5dfcf3fe5e714d0dc35",
+      "Hash": "5727ef3682ea54af05114ef993b99812",
       "Requirements": []
     },
     "zoo": {
