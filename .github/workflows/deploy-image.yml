@@ -3,12 +3,12 @@ name: Create and publish a Docker image
 on:
   push:
     branches: 
-      - 'main'
+      - 'light'
     tags:
       - 'v*'
   pull_request:
     branches:
-      - 'main'
+      - 'light'
 
 env:
   REGISTRY: ghcr.io
@@ -46,7 +46,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: light
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max          
