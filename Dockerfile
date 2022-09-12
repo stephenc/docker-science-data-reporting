@@ -23,6 +23,7 @@ LABEL \
 
 ENV SDKMAN_DIR=/usr/local/sdkman
 ENV PATH=$SDKMAN_DIR/bin;$PATH
+ENV R_BASE_VERSION=4.2.1
 
 RUN set -ex ; \
   export DEBIAN_FRONTEND=noninteractive ; \
@@ -31,44 +32,36 @@ RUN set -ex ; \
     dirmngr \
     gnupg \
     apt-transport-https \
+    locales \
     ca-certificates \
     software-properties-common ;\
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 ; \
   add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/' ; \
   apt-get update -y ; \
   apt-get install -y -q \
-    bash \
-    bison \
-    build-essential \
-    cmake \
-    curl \
-    flex \
-    fonts-lyx \
-    git \
-    graphviz \
-    language-pack-en \
-    latexmk \
-    libcairo2-dev \
-    libcurl4-openssl-dev \
-    libffi-dev \
-    libgdk-pixbuf2.0-dev \
-    libpango1.0-dev \
-    libssl-dev \
-    libwebp-dev \
-    libxml2-dev \
-    libzstd-dev \
-    r-base \
-    ruby-dev \
-    sed \
-    texlive-bibtex-extra \
-    texlive-font-utils \
-    texlive-fonts-recommended \
-    texlive-fonts-extra \
-    texlive-latex-base \
-    texlive-latex-extra \
+    ed \
+    less \
+    vim-tiny \
+    fonts-texgyre \
     wget \
     unzip \
     zip ; \
+  apt-get install -y -q \
+    libopenblas0-pthread \
+    littler \
+    r-cran-docopt \
+    r-cran-littler \
+    r-base=${R_BASE_VERSION}-* \
+    r-base-dev=${R_BASE_VERSION}-* \
+    r-base-core=${R_BASE_VERSION}-* \
+    r-recommended=${R_BASE_VERSION}-* ; \
+  ln -s /usr/lib/R/site-library/littler/examples/install.r /usr/local/bin/install.r ; \
+  ln -s /usr/lib/R/site-library/littler/examples/install2.r /usr/local/bin/install2.r ; \
+  ln -s /usr/lib/R/site-library/littler/examples/installBioc.r /usr/local/bin/installBioc.r ; \
+  ln -s /usr/lib/R/site-library/littler/examples/installDeps.r /usr/local/bin/installDeps.r ; \
+  ln -s /usr/lib/R/site-library/littler/examples/installGithub.r /usr/local/bin/installGithub.r ; \
+  ln -s /usr/lib/R/site-library/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r ; \
+  rm -rf /tmp/downloaded_packages/ /tmp/*.rds ; \
   apt-get clean
 
 RUN set -ex ; \
