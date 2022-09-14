@@ -73,14 +73,13 @@ RUN set -ex ; \
   #
   mkdir preload ; \
   cd preload ; \
+  echo "Type: project" > DESCRIPTION ; \
+  echo "Description: preload" >> DESCRIPTION ; \
+  echo "Depends: R(>=4.0.0), $(echo ${RENV_PRELOAD} | tr ' ' ',')" >> DESCRIPTION ; \
   Rscript -e ' \
-  install.packages("renv", lib="/usr/local/lib/R/site-library", quiet = TRUE) ; \
+  install.packages("renv", lib="/usr/local/lib/R/site-library") ; \
   renv::init() ; \
-  preload <- strsplit(Sys.getenv("RENV_PRELOAD"), " ") ; \
-  preload <- preload[nzchar(preload) && !is.na(preload)] ; \
-  for (package in preload) { \
-    renv::install(package) ; \
-  } ; \
+  renv::install() ; \
   tinytex::install_tinytex(dir="/usr/local/share/TinyTeX", add_path=FALSE, extra_packages=c("fancyhdr","units","microtype")) \
   ' ; \
   cd .. ; \
