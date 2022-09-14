@@ -54,7 +54,12 @@ RUN set -ex ; \
     pandoc \
     pandoc-citeproc \
     ; \
-  apt-get clean
+  apt-get clean ; \
+  #
+  # Switch the docker user to UID 1001 for compatibility with GitHub Actions
+  #
+  usermod -u 1001 docker ; \
+  chown docker:docker /home/docker 
 
 ENV RENV_PATHS_CACHE=/usr/local/share/renv
 
