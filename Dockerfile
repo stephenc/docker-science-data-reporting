@@ -40,7 +40,7 @@ ENV SDKMAN_DIR=/usr/local/sdkman
 ENV JAVA_HOME=/opt/java/openjdk
 COPY --from=java $JAVA_HOME $JAVA_HOME
 COPY --from=java $SDKMAN_DIR $SDKMAN_DIR
-ENV PATH="${JAVA_HOME}/bin:${SDKMAN_DIR}/candidates/jbang/current/bin:${SDKMAN_DIR}/candidates/maven/current/bin:${PATH}"
+ENV PATH="${JAVA_HOME}/bin:${SDKMAN_DIR}/candidates/jbang/current/bin:${SDKMAN_DIR}/candidates/maven/current/bin:/usr/local/share/bin:${PATH}"
 
 RUN set -ex ; \
   export DEBIAN_FRONTEND=noninteractive ; \
@@ -81,7 +81,7 @@ RUN set -ex ; \
   for (package in preload) { \
     renv::install(package) ; \
   } ; \
-  tinytex::install_tinytex() \
+  tinytex::install_tinytex(dir="/usr/local/share/TinyTeX", add_path=FALSE) \
   ' ; \
   cd .. ; \
   #
@@ -91,11 +91,12 @@ RUN set -ex ; \
   #
   # Wire up TinyTeX on the path for both root and docker using a shared install
   #
-  mv /root/.TinyTeX /usr/local/share/TinyTeX ; \
-  ln -s /usr/local/share/TinyTeX /root/.TinyTeX ; \
-  mkdir /home/docker/bin ; \
+  /usr/local/share/TinyTeX/bin/*/tlmgr option sys_bin /usr/local/share/bin ; \
+  mkdir /usr/local/share/bin ; \
+  chmod -R g+w /usr/local/share/bin ; \
+  chgrp -R staff /usr/local/share/bin ; \
   ln -s /usr/local/share/TinyTeX /home/docker/.TinyTeX ; \
-  /root/.TinyTeX/bin/*/tlmgr path add ; \
+  /usr/local/share/TinyTeX/bin/*/tlmgr path add ; \
   cp --preserve=links /root/bin/* /usr/local/bin/ ; \
   chown docker:docker /home/docker/bin/* ; \
   chgrp -R staff /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_CACHE}" ; \
