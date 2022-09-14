@@ -40,7 +40,7 @@ ENV SDKMAN_DIR=/usr/local/sdkman
 ENV JAVA_HOME=/opt/java/openjdk
 COPY --from=java $JAVA_HOME $JAVA_HOME
 COPY --from=java $SDKMAN_DIR $SDKMAN_DIR
-ENV PATH="${HOME}/bin:${JAVA_HOME}/bin:${SDKMAN_DIR}/candidates/jbang/current/bin:${SDKMAN_DIR}/candidates/maven/current/bin:${PATH}"
+ENV PATH="${JAVA_HOME}/bin:${SDKMAN_DIR}/candidates/jbang/current/bin:${SDKMAN_DIR}/candidates/maven/current/bin:${PATH}"
 
 RUN set -ex ; \
   export DEBIAN_FRONTEND=noninteractive ; \
@@ -60,6 +60,7 @@ RUN set -ex ; \
   # Switch the docker user to UID 1001 for compatibility with GitHub Actions
   #
   usermod -u 1001 docker ; \
+  groupmod -g 1001 docker ; \
   chown docker:docker /home/docker 
 
 ENV RENV_PATHS_CACHE=/usr/local/share/renv
@@ -95,7 +96,7 @@ RUN set -ex ; \
   mkdir /home/docker/bin ; \
   ln -s /usr/local/share/TinyTeX /home/docker/.TinyTeX ; \
   /root/.TinyTeX/bin/*/tlmgr path add ; \
-  cp --preserve=links /root/bin/* /home/docker/bin/ ; \
+  cp --preserve=links /root/bin/* /usr/local/bin/ ; \
   chown docker:docker /home/docker/bin/* ; \
   chgrp -R staff /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_CACHE}" ; \
   chmod -R g+w /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_CACHE}"
