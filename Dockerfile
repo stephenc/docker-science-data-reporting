@@ -81,7 +81,7 @@ RUN set -ex ; \
   for (package in preload) { \
     renv::install(package) ; \
   } ; \
-  tinytex::install_tinytex(dir="/usr/local/share/TinyTeX", add_path=FALSE) \
+  tinytex::install_tinytex(dir="/usr/local/share/TinyTeX", add_path=FALSE, extra_packages=c("fancyhdr","units","microtype")) \
   ' ; \
   cd .. ; \
   #
