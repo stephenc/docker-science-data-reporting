@@ -3,12 +3,12 @@ name: Create and publish a Docker image
 on:
   push:
     branches: 
-      - 'light'
-    tags:
-      - 'v*'
+      - 'lite'
+    #tags:
+    #  - 'v*'
   pull_request:
     branches:
-      - 'light'
+      - 'lite'
 
 env:
   REGISTRY: ghcr.io
@@ -40,13 +40,17 @@ jobs:
         uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          flavor: |
+            latest=auto
+            prefix=
+            suffix=-lite,onlatest=true
 
       - name: Build and push Docker image
         uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: light
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max          
