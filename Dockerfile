@@ -96,8 +96,6 @@ RUN set -ex ; \
   chgrp -R staff /usr/local/share/bin ; \
   ln -s /usr/local/share/TinyTeX /home/docker/.TinyTeX ; \
   /usr/local/share/TinyTeX/bin/*/tlmgr path add ; \
-  cp --preserve=links /root/bin/* /usr/local/bin/ ; \
-  chown docker:docker /home/docker/bin/* ; \
   chgrp -R staff /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_CACHE}" ; \
   chmod -R g+w /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_CACHE}"
 
