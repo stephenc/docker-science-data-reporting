@@ -89,7 +89,7 @@ RUN set -ex ; \
     asciidoctor-mathematical \
     asciidoctor-pdf 
 
-ENV PATH=$SDKMAN_DIR/candidates/java/current/bin:$SDKMAN_DIR/candidates/jbang/current/bin:$SDKMAN_DIR/candidates/maven/current/bin:$PATH
+ENV PATH=$HOME/bin:$SDKMAN_DIR/candidates/java/current/bin:$SDKMAN_DIR/candidates/jbang/current/bin:$SDKMAN_DIR/candidates/maven/current/bin:$PATH
 ENV JAVA_HOME=$SDKMAN_DIR/candidates/java/current
 
 # R tidyverse packages need TZ environment variable defined.
