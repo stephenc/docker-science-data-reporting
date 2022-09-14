@@ -40,13 +40,30 @@ ENV SDKMAN_DIR=/usr/local/sdkman
 ENV JAVA_HOME=/opt/java/openjdk
 COPY --from=java $JAVA_HOME $JAVA_HOME
 COPY --from=java $SDKMAN_DIR $SDKMAN_DIR
-ENV PATH="${JAVA_HOME}/bin:${SDKMAN_DIR}/candidates/jbang/current/bin:${SDKMAN_DIR}/candidates/maven/current/bin:${PATH}"
+ENV PATH="${HOME}/bin:${JAVA_HOME}/bin:${SDKMAN_DIR}/candidates/jbang/current/bin:${SDKMAN_DIR}/candidates/maven/current/bin:${PATH}"
+
+RUN set -ex ; \
+  export DEBIAN_FRONTEND=noninteractive ; \
+  apt-get update -y ; \
+  apt-get install -y -q \
+    curl \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libxml2-dev \
+    libzstd-dev \
+    pandoc \
+    pandoc-citeproc \
+    ; \
+  apt-get clean
 
 ENV RENV_PATHS_CACHE=/usr/local/share/renv
 
-ARG RENV_PRELOAD="methods tidyverse ggthemes gridExtra zoo dplyr lubridate xtable expint deSolve qrcode ggplotify gtools rmarkdown rio rticle"
+ARG RENV_PRELOAD="methods tidyverse ggthemes gridExtra zoo dplyr lubridate xtable expint deSolve qrcode ggplotify gtools rmarkdown rio rticles bookdown"
 
 RUN set -ex ; \
+  #
+  # Preload renv and then the latest versions of the preload packages
+  #
   mkdir preload ; \
   cd preload ; \
   Rscript -e ' \
@@ -55,12 +72,26 @@ RUN set -ex ; \
   preload <- strsplit(Sys.getenv("RENV_PRELOAD"), " ") ; \
   preload <- preload[nzchar(preload) && !is.na(preload)] ; \
   for (package in preload) { \
-    install.packages(package, quiet = TRUE) ; \
+    renv::install(package, library="/usr/local/lib/R/site-library") ; \
   } ; \
   tinytex::install_tinytex() \
   ' ; \
-  cp renv.lock ../preload-renv.lock ; \
   cd .. ; \
-  rm -rvf preload
+  #
+  # Now we can throw away the preload project
+  #
+  rm -rvf preload ; \
+  #
+  # Wire up TinyTeX on the path for both root and docker using a shared install
+  #
+  mv /root/.TinyTeX /usr/local/share/TinyTeX ; \
+  ln -s /usr/local/share/TinyTeX /root/.TinyTeX ; \
+  mkdir /home/docker/bin ; \
+  ln -s /usr/local/share/TinyTeX /home/docker/.TinyTeX ; \
+  /root/.TinyTeX/bin/*/tlmgr path add ; \
+  cp /root/bin/* /home/docker/bin/ ; \
+  chown docker:docker /home/docker/bin/* ; \
+  chgrp -R staff /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_CACHE}" ; \
+  chmod -R g+w /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_CACHE}"
 
 ENTRYPOINT ["/bin/bash"]
