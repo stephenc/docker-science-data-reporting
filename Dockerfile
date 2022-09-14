@@ -53,6 +53,7 @@ RUN set -ex ; \
     libzstd-dev \
     pandoc \
     pandoc-citeproc \
+    gpg \
     ; \
   apt-get clean ; \
   #
