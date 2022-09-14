@@ -72,7 +72,7 @@ RUN set -ex ; \
   preload <- strsplit(Sys.getenv("RENV_PRELOAD"), " ") ; \
   preload <- preload[nzchar(preload) && !is.na(preload)] ; \
   for (package in preload) { \
-    renv::install(package, library="/usr/local/lib/R/site-library") ; \
+    renv::install(package) ; \
   } ; \
   tinytex::install_tinytex() \
   ' ; \
