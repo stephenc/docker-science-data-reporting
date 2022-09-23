@@ -63,7 +63,7 @@ RUN set -ex ; \
   groupmod -g 1001 docker ; \
   chown docker:docker /home/docker 
 
-ENV RENV_PATHS_CACHE=/usr/local/share/renv
+ENV RENV_PATHS_ROOT=/usr/local/share/renv
 
 ARG RENV_PRELOAD="methods tidyverse ggthemes gridExtra zoo dplyr lubridate xtable expint deSolve qrcode ggplotify gtools rmarkdown rio rticles bookdown"
 
@@ -99,5 +99,7 @@ RUN set -ex ; \
   /usr/local/share/TinyTeX/bin/*/tlmgr path add ; \
   chgrp -R staff /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_CACHE}" ; \
   chmod -R g+w /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_CACHE}"
+
+ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
 ENTRYPOINT ["/bin/bash"]
