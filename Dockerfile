@@ -97,8 +97,8 @@ RUN set -ex ; \
   chgrp -R staff /usr/local/share/bin ; \
   ln -s /usr/local/share/TinyTeX /home/docker/.TinyTeX ; \
   /usr/local/share/TinyTeX/bin/*/tlmgr path add ; \
-  chgrp -R staff /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_CACHE}" ; \
-  chmod -R g+w /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_CACHE}"
+  chgrp -R staff /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_ROOT}" ; \
+  chmod -R g+w /usr/local/lib/R /usr/local/share/TinyTeX "${RENV_PATHS_ROOT}"
 
 ENV R_LIBS=/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
 
