@@ -13,7 +13,7 @@
 #   limitations under the License.
 #
 
-FROM eclipse-temurin:17.0.4.1_1-jdk as java
+FROM eclipse-temurin:18.0.2_9-jdk as java
 
 ARG MAVEN_VERSION=3.8.5
 ARG JBANG_VERSION=0.98.0
