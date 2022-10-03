@@ -60,8 +60,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Capture renv.lock
-        container:
-          image: ghcr.io/stephenc/docker-science-data-reporting:latest
-          options: --user docker
+        uses: ghcr.io/stephenc/docker-science-data-reporting:latest
         run: |
           "$GITHUB_WORKSPACE/gen-max-renv-lock.sh"
