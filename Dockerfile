@@ -46,6 +46,7 @@ RUN set -ex ; \
   export DEBIAN_FRONTEND=noninteractive ; \
   apt-get update -y ; \
   apt-get install -y -q \
+    cmake \
     curl \
     libcurl4-openssl-dev \
     libssl-dev \
@@ -65,7 +66,7 @@ RUN set -ex ; \
 
 ENV RENV_PATHS_ROOT=/usr/local/share/renv
 
-ARG RENV_PRELOAD="methods tidyverse ggthemes ggpubr gridExtra zoo dplyr lubridate xtable expint deSolve qrcode ggplotify gtools rmarkdown rio rticles bookdown"
+ARG RENV_PRELOAD="methods tidyverse ggthemes gridExtra MatrixModels ggpubr zoo dplyr lubridate xtable expint deSolve qrcode ggplotify gtools rmarkdown rio rticles bookdown"
 
 RUN set -ex ; \
   #
