@@ -49,4 +49,18 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
-          cache-to: type=gha,mode=max          
+          cache-to: type=gha,mode=max         
+
+  capture-renv-lock:
+    runs-on: ubuntu-latest
+    needs:
+      - build-and-push-image
+    container:
+      image: ghcr.io/stephenc/docker-science-data-reporting:latest
+      options: --user docker
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Capture renv.lock
+        run: |
+          ./gen-max-renv-lock.sh
