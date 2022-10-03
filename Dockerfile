@@ -65,7 +65,7 @@ RUN set -ex ; \
 
 ENV RENV_PATHS_ROOT=/usr/local/share/renv
 
-ARG RENV_PRELOAD="methods tidyverse ggthemes gridExtra zoo dplyr lubridate xtable expint deSolve qrcode ggplotify gtools rmarkdown rio rticles bookdown"
+ARG RENV_PRELOAD="methods tidyverse ggthemes ggpubr gridExtra zoo dplyr lubridate xtable expint deSolve qrcode ggplotify gtools rmarkdown rio rticles bookdown"
 
 RUN set -ex ; \
   #
