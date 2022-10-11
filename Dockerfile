@@ -52,6 +52,7 @@ RUN set -ex ; \
     libssl-dev \
     libxml2-dev \
     libzstd-dev \
+    libfontconfig1-dev \
     pandoc \
     pandoc-citeproc \
     gpg \
