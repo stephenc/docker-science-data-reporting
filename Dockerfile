@@ -34,7 +34,7 @@ RUN set -ex ; \
     ' ; \
   apt-get clean
 
-FROM r-base:4.2.1
+FROM r-base:4.2.3
 
 ENV SDKMAN_DIR=/usr/local/sdkman
 ENV JAVA_HOME=/opt/java/openjdk
